@@ -19,7 +19,7 @@ Ensure the following tools are installed on your system before starting:
 - GitHub Account
 
 ### Verify Java Installation
-
+```bash
 java -version
 Getting Started with Moqui
 Step 1: Clone the Moqui Framework
