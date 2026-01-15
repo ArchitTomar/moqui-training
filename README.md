@@ -19,6 +19,7 @@ Ensure the following tools are installed on your system before starting:
 - GitHub Account
 
 ### Verify Java Installation
+
 java -version
 Getting Started with Moqui
 Step 1: Clone the Moqui Framework
@@ -42,11 +43,15 @@ http://localhost:8080
 Default Login Credentials
 
 Username: john.doe
+
 Password: moqui
+
 ElasticSearch warnings can be ignored for this assignment.
+
 Creating moqui-training Component
 
 Component Location
+
 runtime/component/moqui-training
 
 
@@ -68,15 +73,21 @@ mysql_secure_installation
 Recommended configuration
 
 Set root password: Yes
+
 Remove anonymous users: Yes
+
 Disallow root login remotely: Yes
+
 Remove test database: Yes
+
 Reload privilege tables: Yes
 
 Step 2: Add MySQL JDBC Driver
+
 Download MySQL Connector/J 8.0.32
 
 Place the JAR file in:
+
 runtime/lib/
 
 
@@ -84,8 +95,11 @@ This enables communication between Java applications and MySQL.
 
 Step 3: Create Database and User
 CREATE DATABASE moqui CHARACTER SET utf8;
+
 CREATE USER 'moqui'@'localhost' IDENTIFIED BY '@12345abC';
+
 GRANT ALL PRIVILEGES ON moqui.* TO 'moqui'@'localhost';
+
 FLUSH PRIVILEGES;
 
 
@@ -97,12 +111,17 @@ The following file is updated with database details:
 
 runtime/conf/MoquiDevConf.xml
 
+
 Configured properties
 
 Database type: MySQL
+
 Host: 127.0.0.1
+
 Database name: moqui
+
 Database username and password
+
 entity_ds_host specifies the database host.
 Both 127.0.0.1 and localhost refer to the local machine.
 
@@ -111,40 +130,53 @@ Step 5: Load Initial Data
 
 
 Verify successful data loading from:
+
 System Dashboard → Data → Entities
 
 Technical Notes
 CHARACTER SET utf8
+
 Enables Unicode character support
+
 Ensures multi-language compatibility
 
 Alternative: utf8mb4 (full Unicode support)
 
 JDBC Driver
+
 JDBC drivers allow Java applications to connect to databases.
 
 Example:
 
 Class.forName("oracle.jdbc.driver.OracleDriver");
 
+
 This loads the JDBC driver class dynamically at runtime.
 
 IP Address and Host
 
 127.0.0.1 → Loopback address of the local machine
+
 localhost → Hostname mapped to loopback IP
+
 entity_ds_host → Specifies the database server location
 
 Deliverables Included
 
 Updated MoquiDevConf.xml
+
 MySQL database configuration
+
 moqui-training component
+
 Setup documentation (this README)
+
 All changes committed and pushed to GitHub
 
 References
 
 Moqui Framework Documentation
+
 MySQL JDBC Documentation
+
 Moqui Database Configuration Guide
