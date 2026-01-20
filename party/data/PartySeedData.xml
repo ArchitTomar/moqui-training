@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-facade-xml type="seed">
+
+    <!-- PERSON Party -->
+    <party.Party partyId="P100"
+                 partyTypeEnumId="PERSON"
+                 createdDate="2025-01-01T10:00:00"/>
+
+    <party.Person partyId="P100"
+                  firstName="Amit"
+                  lastName="Sharma"
+                  dateOfBirth="1998-05-12"/>
+
+    <!-- PARTY GROUP -->
+    <party.Party partyId="G200"
+                 partyTypeEnumId="PARTY_GROUP"
+                 createdDate="2025-01-01T10:30:00"/>
+
+    <party.PartyGroup partyId="G200"
+                      groupName="Tech Solutions Pvt Ltd"
+                      description="Software Company"/>
+
+    <!-- CONTACT MECH -->
+    <party.ContactMech contactMechId="CM100"
+                       contactMechTypeId="EMAIL"
+                       infoString="amit.sharma@example.com"
+                       createdDate="2025-01-01T11:00:00"/>
+
+    <party.ContactMech contactMechId="CM200"
+                       contactMechTypeId="TELECOM_NUMBER"
+                       infoString="+91-9876543210"
+                       createdDate="2025-01-01T11:05:00"/>
+
+    <!-- PARTY ↔ CONTACT LINK -->
+    <party.PartyContactMech partyId="P100"
+                            contactMechId="CM100"
+                            fromDate="2025-01-01T11:10:00"/>
+
+    <party.PartyContactMech partyId="P100"
+                            contactMechId="CM200"
+                            fromDate="2025-01-01T11:15:00"/>
+
+</entity-facade-xml>
