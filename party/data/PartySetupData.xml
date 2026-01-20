@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-facade-xml type="seed">
+    <!-- Screen Authorization -->
+    <artifactGroups artifactGroupId="PARTY_APP" description="Party App (via root screen)">
+        <artifacts artifactName="component://party/screen/party.xml" artifactTypeEnumId="AT_XML_SCREEN" inheritAuthz="Y"/>
+        <authz artifactAuthzId="PARTY_APP_ALLUSERS" userGroupId="ALL_USERS" authzTypeEnumId="AUTHZT_ALWAYS" authzActionEnumId="AUTHZA_ALL"/>
+    </artifactGroups>
+
+    <!-- REST API Authorization for Party component -->
+    <artifactGroups artifactGroupId="PARTY_REST_API" description="Party REST API (via root resource)">
+        <artifacts artifactTypeEnumId="AT_REST_PATH" inheritAuthz="Y" artifactName="/party"/>
+        <authz artifactAuthzId="PARTY_API_ALLUSERS" userGroupId="ALL_USERS" authzTypeEnumId="AUTHZT_ALWAYS" authzActionEnumId="AUTHZA_ALL"/>
+    </artifactGroups>
+</entity-facade-xml>

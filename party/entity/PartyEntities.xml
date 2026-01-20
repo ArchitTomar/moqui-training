@@ -8,8 +8,7 @@
 
         <!-- 🔥 ENUM FIX -->
         <field name="partyTypeEnumId"
-               type="id"
-               enum-type-id="PartyType"/>
+               type="id"/>
 
         <field name="createdDate"
                type="date-time"
@@ -18,6 +17,7 @@
         <relationship type="one" related="moqui.basic.Enumeration">
             <key-map field-name="partyTypeEnumId" related="enumId"/>
         </relationship>
+
     </entity>
 
     <!-- ================= Person ================= -->
