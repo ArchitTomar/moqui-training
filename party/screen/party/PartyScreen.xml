@@ -2,38 +2,67 @@
 <screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/xml-screen-3.xsd">
 
+    <!-- Create Party -->
     <transition name="createParty">
         <service-call name="create#party.Party"/>
         <default-response url="."/>
     </transition>
 
-    <transition name="deleteParty">
-        <service-call name="delete#party.Party"/>
-        <default-response url="."/>
+    <!-- Create Person and go to Person screen -->
+    <transition name="createPerson">
+        <service-call name="create#party.Person"/>
+        <default-response url="../PersonScreen"/>
     </transition>
 
+    <!--Create PartyGroup and go to PartyGroup screen-->
+    <transition name="createPartyGroup">
+        <service-call name="create#party.PartyGroup"/>
+        <default-response url="../PartyGroupScreen"/>
+    </transition>
+
+    <!-- Load Party List -->
     <actions>
         <entity-find entity-name="party.Party" list="partyList">
-            <search-form-inputs/></entity-find>
+            <search-form-inputs/>
+        </entity-find>
     </actions>
+
     <widgets>
 
+        <!-- Create Party Dialog -->
         <container-dialog id="CreatePartyDialog" button-text="Create Party">
             <form-single name="CreateParty" transition="createParty">
                 <auto-fields-entity entity-name="party.Party" field-type="edit"/>
-                <field name="submitButton"><default-field title="Create"><submit/></default-field></field>
-            </form-single>
-        </container-dialog>
-9
-        <container-dialog id="DeletePartyDialog" button-text="Delete Party">
-            <form-single name="DeleteParty" transition="deleteParty">
-                <field name="partyId"><default-field title="Party Id"><text-area/></default-field></field>
-                <field name="submitButton"><default-field title="Delete"><submit/></default-field></field>
+                <field name="submitButton">
+                    <default-field title="Create"><submit/></default-field>
+                </field>
             </form-single>
         </container-dialog>
 
+        <!-- Create Person Dialog -->
+        <container-dialog id="CreatePersonDialog" button-text="Create Person">
+            <form-single name="CreatePerson" transition="createPerson">
+                <auto-fields-entity entity-name="party.Person" field-type="edit"/>
+                <field name="submitButton">
+                    <default-field title="Create Person"><submit/></default-field>
+                </field>
+            </form-single>
+        </container-dialog>
+
+        <!--Create PartyGroup Dialog-->
+        <container-dialog id="PartyGroupDialog" button-text="Create PartyGroup">
+            <form-single name="CreatePartyGroup" transition="createPartyGroup">
+                <auto-fields-entity entity-name="party.PartyGroup" field-type="edit"/>
+                <field name="submitButton">
+                    <default-field title="Create PartyGroup"><submit/></default-field>
+                </field>
+            </form-single>
+        </container-dialog>
+
+        <!-- Party List -->
         <form-list name="ListParty" list="partyList" header-dialog="true" skip-form="true">
             <auto-fields-entity entity-name="party.Party" field-type="find-display"/>
         </form-list>
+
     </widgets>
 </screen>

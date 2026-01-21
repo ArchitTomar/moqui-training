@@ -6,7 +6,7 @@
     <entity entity-name="Party" package="party">
         <field name="partyId" type="id" is-pk="true"/>
 
-        <!-- 🔥 ENUM FIX -->
+        <!--  ENUM FIX -->
         <field name="partyTypeEnumId"
                type="id"/>
 
@@ -41,10 +41,9 @@
     <entity entity-name="ContactMech" package="party">
         <field name="contactMechId" type="id" is-pk="true"/>
 
-        <!-- 🔥 ENUM FIX -->
+        <!--  ENUM FIX -->
         <field name="contactMechTypeId"
-               type="id"
-               enum-type-id="ContactMechType"/>
+               type="id"/>
 
         <field name="infoString" type="text-medium"/>
         <field name="createdDate"

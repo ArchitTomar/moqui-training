@@ -3,7 +3,7 @@
         xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/xml-screen-3.xsd">
     <subscreens default-item="PartyScreen"/>
     <widgets>
-        <label type="h1" text="Party Management Screen"/>
+        <label type="h1" text="Party Management Display"/>
         <render-mode>
             <text type="html,vuet" location="component://party/screen/party/hello.html"/>
         </render-mode>

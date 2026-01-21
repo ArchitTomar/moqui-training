@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/xml-screen-3.xsd">
+
+    <actions>
+        <entity-find entity-name="party.Person" list="personList">
+            <search-form-inputs/>
+        </entity-find>
+    </actions>
+
+    <widgets>
+
+        <label type="h2" text="Person List"/>
+
+        <form-list name="ListPerson" list="personList" header-dialog="true" skip-form="true">
+            <auto-fields-entity entity-name="party.Person" field-type="find-display"/>
+        </form-list>
+
+    </widgets>
+</screen>
