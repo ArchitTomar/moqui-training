@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/service-definition-3.xsd">
+    <service verb="create" noun="Party" type="inline">
+
+        <!--In Response of the Service-->
+        <in-parameters>
+            <auto-parameters entity-name="party.Party" include="all"/>
+        </in-parameters>
+<!--Out Response of the Service-->
+        <out-parameters>
+            <auto-parameters entity-name="party.Party" include="pk" required="true"/>
+        </out-parameters>
+
+
+        <actions>
+            <!--Creating blank object of entity-->
+            <entity-make-value entity-name="party.Party" value-field="party"/>
+
+            <!--Setting data which came from Form-->
+            <entity-set value-field="party" include="all"/>
+
+            <!-- Checking if primary key is not there then generate auto-->
+            <if condition="!party.partyId">
+                <entity-sequenced-id-primary value-field="party"/>
+            </if>
+<!--Insert into DB-->
+            <entity-create value-field="party"/>
+
+
+        </actions>
+    </service>
+</services>

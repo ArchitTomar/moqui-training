@@ -4,7 +4,7 @@
 
     <!-- Create Party -->
     <transition name="createParty">
-        <service-call name="create#party.Party"/>
+        <service-call name="party.PartyServices.create#Party"/>
         <default-response url="."/>
     </transition>
 
